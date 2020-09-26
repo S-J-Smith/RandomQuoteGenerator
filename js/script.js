@@ -10,7 +10,28 @@ project 1 - A Random Quote Generator
 /*** 
  * `quotes` array 
 ***/
-
+var quotes = [
+  {
+     quote: 'The way to get started is to quit talking and begin doing.',
+     source: 'Walt Disney'
+  },
+  {
+     quote: 'Your time is limited, so dont waste it living someone else\'s life. Dont be trapped by dogma – which is living with the results of other people\'s thinking.',
+     source: 'Steve Jobs'
+  },
+  {
+    quote: 'If you set your goal\'s ridiculously high and it\'s a failure, you will fail above everyone else\'s success.',
+    source: 'James Cameron'
+  },
+  {
+    quote: 'Always remember that you are absolutely unique. Just like everyone else.',
+    source: 'Margaret Mead'
+  },
+  {
+    quote: 'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
+    source: 'Benjamin Franklin'
+  },
+];
 
 
 /***
