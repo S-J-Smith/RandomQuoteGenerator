@@ -14,14 +14,14 @@ var quotes = [
   {
      quote: 'The way to get started is to quit talking and begin doing.',
      source: 'Walt Disney',
-     citation: 'book',
+     citation: 'web',
      year: '1986'
   },
   {
      quote: 'Your time is limited, so dont waste it living someone else\'s life. Dont be trapped by dogma – which is living with the results of other people\'s thinking.',
      source: 'Steve Jobs',
-     citation: 'unknown',
-     year: 'unknown'
+     citation: 'web',
+     year: '1978'
   },
   {
     quote: 'If you set your goal\'s ridiculously high and it\'s a failure, you will fail above everyone else\'s success.',
@@ -76,11 +76,11 @@ var result = getRandomQuote(quotes);
 function printQuote() {
   var quoteObject = getRandomQuote(quotes);
   var html = `<p class='quote'> ${quoteObject.quote} </p>, <p class="source"> ${quoteObject.source}`
-  if ( quoteObject.citation === true ) {
-  `<span class="citation"> ${quoteObject.citation} quote citation </span>`
+  if ( quoteObject ['citation'] ) {
+    html += `<span class="citation"> ${quoteObject.citation} </span>`
 }
-  else if ( quoteObject.year === true ) {
-  `<span class="year"> ${quoteObject.year} quote year </span> </p>`
+  if ( quoteObject ['year'] ) {
+    html += `<span class="year"> ${quoteObject.year} </span> </p>`
 }
 
   return document.getElementById('quote-box').innerHTML = html; 
