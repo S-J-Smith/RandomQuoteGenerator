@@ -14,20 +14,20 @@ var quotes = [
   {
      quote: 'The way to get started is to quit talking and begin doing.',
      source: 'Walt Disney',
-     citation: 'unknown',
-     year: 'unknown'
+     citation: 'book',
+     year: '1986'
   },
   {
      quote: 'Your time is limited, so dont waste it living someone else\'s life. Dont be trapped by dogma – which is living with the results of other people\'s thinking.',
      source: 'Steve Jobs',
      citation: 'unknown',
-     year: 'unknown',
+     year: 'unknown'
   },
   {
     quote: 'If you set your goal\'s ridiculously high and it\'s a failure, you will fail above everyone else\'s success.',
     source: 'James Cameron',
     citation: 'unknown',
-    year: 'unknown',
+    year: 'unknown'
   },
   {
     quote: 'Always remember that you are absolutely unique. Just like everyone else.',
@@ -40,7 +40,7 @@ var quotes = [
     source: 'Benjamin Franklin',
     citation: 'unknown',
     year: 'unknown'
-  },
+  }
 ];
 
 //console.log(quotes);
@@ -66,7 +66,7 @@ function getRandomQuote(array) {
 
 var result = getRandomQuote(quotes);
 
-console.log(result);
+//console.log(result);
 
 
 /***
@@ -74,8 +74,8 @@ console.log(result);
 ***/
 
 function printQuote() {
-  var quoteObject = getRandomQuote(result);
-  var html = `<p class='quote'> ${quoteObject} A random quote </p>, <p class="source"> ${quoteObject} quote source`
+  var quoteObject = getRandomQuote(quotes);
+  var html = `<p class='quote'> ${quoteObject.quote} </p>, <p class="source"> ${quoteObject.source}`
   if ( quotes.citation === true ) {
   `<span class="citation"> ${quoteObject.citation} quote citation </span>`
 }
@@ -96,4 +96,4 @@ function printQuote() {
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
 
-console.log(printQuote());
+//console.log( printQuote() );
