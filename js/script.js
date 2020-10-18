@@ -76,10 +76,10 @@ var result = getRandomQuote(quotes);
 function printQuote() {
   var quoteObject = getRandomQuote(quotes);
   var html = `<p class='quote'> ${quoteObject.quote} </p>, <p class="source"> ${quoteObject.source}`
-  if ( quotes.citation === true ) {
+  if ( quoteObject.citation === true ) {
   `<span class="citation"> ${quoteObject.citation} quote citation </span>`
 }
-  if ( quotes.year === true ) {
+  else if ( quoteObject.year === true ) {
   `<span class="year"> ${quoteObject.year} quote year </span> </p>`
 }
 
