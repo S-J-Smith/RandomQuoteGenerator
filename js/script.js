@@ -68,20 +68,26 @@ var result = getRandomQuote(quotes); //returns a random quote from the array by 
 ***/
 
 function printQuote() {
+
   var quoteObject = getRandomQuote(quotes);
+
   var html = `<p class='quote'> ${quoteObject.quote} </p>, <p class="source"> ${quoteObject.source}`
+
   if ( quoteObject ['citation'] ) {
+
     html += `<span class="citation"> ${quoteObject.citation} </span>`
+
 }
+
   if ( quoteObject ['year'] ) {
+
     html += `<span class="year"> ${quoteObject.year} </span> </p>`
+
 }
 
   return document.getElementById('quote-box').innerHTML = html; 
 
 }
-
-
 
 /***
  * click event listener for the print quote button
