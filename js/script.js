@@ -13,31 +13,50 @@ var quotes = [
 		quote: 'The way to get started is to quit talking and begin doing.',
 		source: 'Walt Disney',
 		citation: 'web',
-		year: '1986'
+		year: '1986',
+		tag: 'children, cartoon, anitation, motivation'
   },
 	{
 		quote: 'Your time is limited, so dont waste it living someone else\'s life. Dont be trapped by dogma – which is living with the results of other people\'s thinking.',
 		source: 'Steve Jobs',
 		citation: 'web',
-		year: '1978'
+		year: '1978',
+		tag: 'motivation, inspiration, business, positivity'
   },
 	{
 		quote: 'If you set your goal\'s ridiculously high and it\'s a failure, you will fail above everyone else\'s success.',
 		source: 'James Cameron',
 		citation: 'unknown',
-		year: 'unknown'
+		year: 'unknown',
+		tag: 'inspiration, positivity, film, motivation'
   },
 	{
 		quote: 'Always remember that you are absolutely unique. Just like everyone else.',
 		source: 'Margaret Mead',
 		citation: 'unknown',
-		year: 'unknown'
+		year: 'unknown',
+		tag: 'unknown'
   },
 	{
 		quote: 'Tell me and I forget. Teach me and I remember. Involve me and I learn.',
 		source: 'Benjamin Franklin',
 		citation: 'unknown',
-		year: 'unknown'
+		year: 'unknown',
+		tag: 'unknown'
+  },
+  	{
+		quote: 'I never LOSE, I either WIN or LEARN.',
+		source: 'Nelson Mandela',
+		citation: 'unknown',
+		year: 'unknown',
+		tag: 'positivity, motivation, inspiration'
+  },
+  	{
+		quote: 'Don’t focus on the pain, focus on the progress.',
+		source: 'Dwayne Johnson',
+		citation: 'unknown',
+		year: 'unknown',
+		tag: 'wrestler, actor, motivation, imspiration'
   }
 ];
 /*console.log(quotes); - this is to to log the quotes array to the console.*/
@@ -63,6 +82,9 @@ function printQuote() {
 	}
 	if ( quoteObject[ 'year' ] ) {
 		html += `<span class="year"> ${quoteObject.year} </span> </p>`
+	}
+	if ( quoteObject[ 'tag' ] ) {
+		html += `<span class="tag"> ${quoteObject.tag} </span> </p>`
 	}
 	return document.getElementById( 'quote-box' ).innerHTML = html;
 }
