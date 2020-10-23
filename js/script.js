@@ -88,6 +88,14 @@ function printQuote() {
 	}
 	return document.getElementById( 'quote-box' ).innerHTML = html;
 }
+
+const pageBody = document.querySelector("body");
+
+function changeBg() {
+  let color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+  pageBody.style.background = color;
+}
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
