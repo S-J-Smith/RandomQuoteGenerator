@@ -6,7 +6,9 @@ project 1 - A Random Quote Generator
 // Check the "Project Resources" section of the project instructions
 // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 /*** 
- * `quotes` array - please note there is i have added the properties for two of the citation's but not the rest as this was hard to find.
+ * `quotes` array - Object array containing 7 quotes.  Please note, not sure where or when the original quotes were used as could not find
+ * this information and therefore added in for a few quotes though this is most likely incorrect but this is just for the purpose of
+ * demonstrating the code works.
  ***/
 var quotes = [
 	{
@@ -59,24 +61,26 @@ var quotes = [
 		tag: 'wrestler, actor, motivation, imspiration'
   }
 ];
-/*console.log(quotes); - this is to to log the quotes array to the console.*/
-/*console.table(quotes); - this is to log the quotes array to the console in table format */
-//console.dir(quotes); - this is to see the quote array in a directory style format. */ 
+//console.log(quotes); - this is to to log the quotes array to the console.
+//console.table(quotes); - this is to log the quotes array to the console in table format 
+//console.dir(quotes); - this is to see the quote array in a directory style format.
 /***
- * `getRandomQuote` function - generates random number and returns its index number from the array.
+ * `getRandomQuote` function - generates random number and returns an index number between 0 and 7 being the amount of quotes there are
+ * in the Object array.
  ***/
 function getRandomQuote( array ) {
-	var quoteIndex = Math.floor( Math.random() * quotes.length ); // generates a random index number from the Object array and assigns to the quoteIndex variable.
-	return array[ quoteIndex ]; //returns the index number and quote from the array.
+	const quoteIndex = Math.floor( Math.random() * quotes.length ); // generates a random index number from the Object array and assigns to the quoteIndex variable.
+	return array[ quoteIndex ]; //returns the index number from the array.
 }
-var result = getRandomQuote( quotes ); //returns a random quote from the array by calling the qyote from the array and getRandomQuote function.
+const result = getRandomQuote( quotes ); //returns a random quote from the array by calling the getRandomQuote function.
 //console.log(result); - logs out the above to the console.
 /***
- * `printQuote` function - The app should display a new quote each time the user clicks the "Show another quote" button using a printQuote function.
+ * `printQuote` function - Displays a new quote each time the user clicks the "Show another quote" button.
  ***/
 function printQuote() {
-	var quoteObject = getRandomQuote( quotes );
-	var html = `<p class='quote'> ${quoteObject.quote} </p>, <p class="source"> ${quoteObject.source}`
+	const quoteObject = getRandomQuote( quotes ); //assigns getRandomQuote function to the variable quoteObject.
+	const html = `<p class='quote'> ${quoteObject.quote} </p>, <p class="source"> ${quoteObject.source}` //Assigns string to variable html.
+//Checks for the keys citation, year and tag inside the Object away and adds to the html document when a quote is generated.
 	if ( quoteObject[ 'citation' ] ) {
 		html += `<span class="citation"> ${quoteObject.citation} </span>`
 	}
@@ -88,14 +92,14 @@ function printQuote() {
 	}
 	return document.getElementById( 'quote-box' ).innerHTML = html;
 }
-
-const pageBody = document.querySelector("body");
-
+const pageBody = document.querySelector("body"); //Assigns the body of the html document to the variable pageBody.
+/*** 
+ * `changeBg` function - This function generates a random background color each time the Show another quote button is clicked.
+***/
 function changeBg() {
-  let color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+  const color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
   pageBody.style.background = color;
 }
-
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
