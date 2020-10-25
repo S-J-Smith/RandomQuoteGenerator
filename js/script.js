@@ -97,19 +97,22 @@ let pageBody = document.querySelector("body"); //Assigns the body of the html do
  * `changeBg` function - This function generates a random background color each time the Show another quote button is clicked.
 ***/
 function changeBg() {
-  let color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+  let color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);  
   pageBody.style.background = color;
 }
-
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
 document.getElementById( 'load-quote' ).addEventListener( "click", printQuote, false );
 //console.log( printQuote() ); - logs the printQuote function to the console.
+/***
+ * Set timer to print quote and change color every 10 seconds.
+ ***/
 
-var intervalID = window.setInterval(myCallback({printQuote()}), 5000);
+let quoteInterval = window.setInterval (printQuote, 10000);
+let bgColorInterval = window.setInterval (changeBg, 10000);
 
-function myCallback() {
+function myInterval() {
 	return document.getElementById('load-quote');
 }
