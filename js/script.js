@@ -10,7 +10,7 @@ project 1 - A Random Quote Generator
  * this information and therefore added in for a few quotes though this is most likely incorrect but this is just for the purpose of
  * demonstrating the code works.
  ***/
-var quotes = [
+let quotes = [
 	{
 		quote: 'The way to get started is to quit talking and begin doing.',
 		source: 'Walt Disney',
@@ -69,17 +69,17 @@ var quotes = [
  * in the Object array.
  ***/
 function getRandomQuote( array ) {
-	const quoteIndex = Math.floor( Math.random() * quotes.length ); // generates a random index number from the Object array and assigns to the quoteIndex variable.
+	let quoteIndex = Math.floor( Math.random() * quotes.length ); // generates a random index number from the Object array and assigns to the quoteIndex variable.
 	return array[ quoteIndex ]; //returns the index number from the array.
 }
-const result = getRandomQuote( quotes ); //returns a random quote from the array by calling the getRandomQuote function.
+let result = getRandomQuote( quotes ); //returns a random quote from the array by calling the getRandomQuote function.
 //console.log(result); - logs out the above to the console.
 /***
  * `printQuote` function - Displays a new quote each time the user clicks the "Show another quote" button.
  ***/
 function printQuote() {
-	const quoteObject = getRandomQuote( quotes ); //assigns getRandomQuote function to the variable quoteObject.
-	const html = `<p class='quote'> ${quoteObject.quote} </p>, <p class="source"> ${quoteObject.source}` //Assigns string to variable html.
+	let quoteObject = getRandomQuote( quotes ); //assigns getRandomQuote function to the variable quoteObject.
+	let html = `<p class='quote'> ${quoteObject.quote} </p>, <p class="source"> ${quoteObject.source}` //Assigns string to variable html.
 //Checks for the keys citation, year and tag inside the Object away and adds to the html document when a quote is generated.
 	if ( quoteObject[ 'citation' ] ) {
 		html += `<span class="citation"> ${quoteObject.citation} </span>`
@@ -92,17 +92,24 @@ function printQuote() {
 	}
 	return document.getElementById( 'quote-box' ).innerHTML = html;
 }
-const pageBody = document.querySelector("body"); //Assigns the body of the html document to the variable pageBody.
+let pageBody = document.querySelector("body"); //Assigns the body of the html document to the variable pageBody.
 /*** 
  * `changeBg` function - This function generates a random background color each time the Show another quote button is clicked.
 ***/
 function changeBg() {
-  const color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
+  let color = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
   pageBody.style.background = color;
 }
+
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
  ***/
 document.getElementById( 'load-quote' ).addEventListener( "click", printQuote, false );
 //console.log( printQuote() ); - logs the printQuote function to the console.
+
+var intervalID = window.setInterval(myCallback({printQuote()}), 5000);
+
+function myCallback() {
+	return document.getElementById('load-quote');
+}
